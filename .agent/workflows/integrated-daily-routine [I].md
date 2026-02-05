@@ -54,7 +54,7 @@ description: 매크로, 이벤트, 섹터, 가치, 수급, 리스크, 전략을 
 -   **Expert Skill**: `total-trading-strategy [I]`
 -   **Output**: 
     1. `YYYYMMDD_HHmm_IDR_[결정]_종목명_최종통합전략.md`
-    2. `YYYYMMDD_HHmm_IDR_[가이드]_종목명_내일의쉬운전략.md`
+    2. `YYYYMMDD_HHmm_IDR_[가이드]_종목명_실전쉬운가이드.md`
 -   **Task**: 위 6개 전문가 보고서를 통합하여 최종 투자 비중 확정.
 
 ### 8단계: 통합 리포터 (Total Reporter Load)

@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "naver-finance": {
+      "command": "d:/dev/naver-trading/naver-finance-mcp.exe",
+      "args": [],
+      "disabled": false,
+      "autoApprove": [
+        "get_stock_news",
+        "search_stock"
+      ]
+    },
+    "yahoo-finance": {
+      "command": "uvx",
+      "args": [
+        "mcp-yahoo-finance"
+      ],
+      "autoApprove": [
+        "get_current_stock_price",
+        "get_historical_stock_prices"
+      ]
+    },
+    "kis-trading-remote": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://localhost:3000/sse"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "domestic_stock"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "env": {},
+      "disabled": true
+    }
+  }
+}
