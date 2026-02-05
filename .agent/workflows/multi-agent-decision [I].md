@@ -8,6 +8,10 @@ description: 모든 분석 데이터를 통합하여 에이전트 간 토론을 
 
 # 🛠️ multi-agent-decision [I] (의사결정 워크플로우)
 
+## 📌 실행 전제 조건 (Pre-requisites)
+- **IDR 필수**: 본 워크플로우는 동일 세션(`YYYYMMDD_HHmm`)에서 생산된 **IDR 팩트 리포트 6종**을 필수 입력 데이터로 함.
+- **자동 연계**: 금일 해당 종목에 대한 최신 IDR 리포트가 없을 경우, 에이전트는 **반드시 `integrated-daily-routine [I]`를 선행**하여 팩트를 확보한 후 MAD를 시작해야 함.
+
 ## 🛠️ 도구 사용 지침 (Tool Discipline)
 - **명세 우선 확인**: KIS API 호출 전 `find_api_detail` 조회가 필수입니다.
 - **필수값 누락주의**: `env_dv` (실전/모의 구분) 파라미터를 절대 누락하지 마십시오.
