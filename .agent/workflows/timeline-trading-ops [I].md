@@ -70,11 +70,11 @@ YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_설명.md
   - `risk-strategist [I]`(Expert Skill)를 통한 익일 리스크 사전 예고.
 
 ### 4단계: 데일리 통합 전략 수립 (20:00 ~ 심야) - [모드: I]
--   **핵심 워크플로우**: `integrated-daily-routine [I]` → `multi-agent-decision [I]`
+-   **Sequence**: `integrated-daily-routine [I]` (팩트 생산) ➡️ `multi-agent-decision [I]` (전략 결정)
 -   **Action**:
-  - 당일 모든 데이터를 집대성한 Grand Master 리포트 생성.
-  - 전문가용(Pro) 전략과 초보자용(Easy) 가이드 패키징.
-  - `multi-agent-decision [I]`(Decision Workflow)을 통한 최종 투자 등급 확정.
+  - `IDR [I]`을 실행하여 6대 전문가의 팩트 리포트 세트 완성.
+  - 생성된 팩트 리포트를 기반으로 `MAD [I]`을 호출하여 에이전트 간 토론 및 최종 전략 수립.
+  - 마침내 전문가용 상세 전략과 투자자용 **'실전 쉬운 가이드'** 패키징 완성.
 
 ---
 

@@ -50,22 +50,17 @@ description: 매크로, 이벤트, 섹터, 가치, 수급, 리스크, 전략을 
 -   **Output**: `YYYYMMDD_HHmm_IDR_[리스크]_종목명_위험분석보고서.md`
 -   **Task**: 공매도, 대차, 오버행 및 하락 시나리오 수립.
 
-### 7단계: 전략 통합가 (Final Strategist Load)
--   **Expert Skill**: `total-trading-strategy [I]`
--   **Output**: 
-    1. `YYYYMMDD_HHmm_IDR_[결정]_종목명_최종통합전략.md`
-    2. `YYYYMMDD_HHmm_IDR_[가이드]_종목명_실전쉬운가이드.md`
--   **Task**: 위 6개 전문가 보고서를 통합하여 최종 투자 비중 확정.
-
-### 8단계: 통합 리포터 (Total Reporter Load)
--   **Expert Skill**: `total-trading-strategy [I]` (Extended Reporting)
--   **Output**: `YYYYMMDD_HHmm_IDR_[통합]_전체_종합분석보고서.md`
--   **Task**: 모든 전문가의 분석 결과(이벤트 영향, 섹터 스캔, 자금 이동, 10선 추천 등)를 하나로 집대성한 최종 요약본 생성.
+### 6단계: 리스크 전문가 (Risk Expert Load)
+-   **Expert Skill**: `risk-strategist [I]`
+-   **Output**: `YYYYMMDD_HHmm_IDR_[리스크]_종목명_위험분석보고서.md`
+-   **Task**: 공매도, 대차, 오버행 및 하락 시나리오 수립.
 
 ---
 
+## 📝 분석 완료 및 다음 단계
+- 본 워크플로우는 **6대 전문가의 객체적 팩트 리포트** 생성을 완료하는 것으로 종료됩니다.
+- 도출된 리포트들을 바탕으로 최종 투자 의사결정을 내리려면 **`multi-agent-decision [I]`** 워크플로우를 이어서 호출하십시오.
 
 ## 📝 최종 점검 (Final Check)
-- [ ] 모든 파일이 동일한 `YYYYMMDD_HHmm` 접두사로 통일되었는가?
-- [ ] 7단계 전문가의 SRP가 정확히 이행되었는가?
-- [ ] Bull/Bear 관점이 균형 있게 포함되었는가?
+- [ ] 6개 전문가 파일이 동일한 `YYYYMMDD_HHmm` 접두사로 통일되었는가?
+- [ ] 각 전문가 리포트 하단에 상호 참조 링크가 포함되어 세트(Set)를 이루는가?
