@@ -6,26 +6,29 @@ Antigravity는 MoE(Mixture of Experts) 아키텍처를 기반으로 한 차세�
 
 ---
 
-## 🏗️ Core Architecture: MoE (Mixture of Experts)
+## 🏗️ Core Architecture: 3-Tier Multi-Agent System
 
-Antigravity는 단일 지능이 아닌, 각 분야의 **전문가(Expert) 에이전트**들이 독립적으로 분석하고 협업하는 구조를 가집니다.
+Antigravity는 단순히 데이터만 나열하는 것이 아니라, **운영 - 생산 - 판단**의 3단계 계층 구조를 통해 가장 냉철한 투자 결정을 도출합니다.
 
--   **Macro Expert**: 현물-선물 괴리, 미 금리/환율 등 시장 기초 체력 분석.
--   **Event Expert**: 글로벌 뉴스 및 공시의 신선도 및 파급력 판별 (Yahoo News 연계).
--   **Sector Expert**: 주도 테마 발굴 및 글로벌 피어(Peer) 동조화 검증.
--   **Value Expert**: 재무제표 및 컨센서스 기반 적정 가치 산출.
--   **Investor Matrix (Flow)**: 외국인/기관 주포의 평단가(VWAP) 및 수급 질적 분석.
--   **Risk Strategist**: 공매도, 대차거래, 오버행 리스크 및 하락 시나리오 수립.
+### 🟢 Tier 1: 운영 (TTO - Timeline Trading Ops)
+-   시점별(장전/장중/장후) 최적 분석 모드를 결정하는 **마스터 스케줄러**.
+
+### 🔵 Tier 2: 생산 (IDR & [T] Skills)
+-   **IDR [I]**: 6대 전문가(매크로, 이벤트, 섹터, 가치, 수급, 리스크)의 객관적 **팩트 리포트** 생산.
+-   **Tactical [T]**: 데이트레이딩, 스윙 등 스타일별 **실전 전술 리포트** 생산.
+
+### 🔴 Tier 3: 판단 (MAD - Multi-Agent Decision)
+-   IDR과 Tactical의 산출물을 집대성하여 에이전트 간 난상토론을 거쳐 **'실전 쉬운 가이드'**를 생산하는 **최종 종결자**.
 
 ---
 
 ## ✨ Key Features
 
-### 1. **통합 데일리 루틴 (Integrated Daily Routine)**
-8단계 지능형 파이프라인을 통해 종목 선정부터 최종 매매 가이드까지 자동화된 리서치 프로세스를 수행합니다.
+### 1. **통합 자율 연계 분석 (Autonomous Decision Chain)**
+-   사용자가 최종 결정(`MAD`)만 호출해도, 데이터 부재 시 시스템이 스스로 판단하여 팩트 생산(`IDR`)을 먼저 수행하는 지능형 의존성(Dependency)을 갖추고 있습니다.
 
-### 2. **KRX-NXT 하이브리드 인텔리전스**
-한국거래소(KRX)와 넥스트레이드(NXT)의 호가 및 거래량을 실시간 비교 분석하여 허수 주문을 판별하고 최적의 진입 시점을 포착합니다.
+### 2. **실전 쉬운 가이드 (Practical Easy Guide)**
+-   복잡한 데이터 분석 결과를 비전공자도 즉시 실행할 수 있는 '매수/매도 로드맵'으로 요약하여 제공합니다.
 
 ### 3. **실전 미세 전술 (Tactical Precision)**
 '라운드 피겨 매도 원칙', '08:30 NXT 선제 테마 포착' 등 실전 복기를 통해 검증된 미세 전술이 워크플로우에 내장되어 있습니다.
@@ -56,8 +59,8 @@ Antigravity는 단일 지능이 아닌, 각 분야의 **전문가(Expert) 에이
 ## 🚀 Quick Start
 
 1.  **에이전트 로딩**: `antigravity`를 기동하고 환경 변수를 확인합니다.
-2.  **분석 시작**: `/integrated-daily-routine [I] 종목명` 슬래시 커맨드를 통해 분석을 시작합니다.
-3.  **리포트 확인**: `reports/YYYY-MM-DD/` 폴더에서 생성된 9개의 전문 분석 패키지를 검토합니다.
+2.  **분석 및 결정**: `/multi-agent-decision [I] 종목명`을 호출합니다. (IDR 팩트 부재 시 자동으로 선행 수행됨)
+3.  **리포트 확인**: `reports/YYYY-MM-DD/` 폴더에서 생성된 팩트 리포트 6종과 MAD의 **'최종통합전략'**, **'실전쉬운가이드'** 패키지를 검토합니다.
 
 ---
 
