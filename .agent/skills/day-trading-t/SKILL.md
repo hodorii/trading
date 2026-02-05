@@ -3,24 +3,15 @@ name: day-trading [T]
 description: 장중 분봉 및 실시간 수급 실측을 통한 당일 매매 전술 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 모든 실시간 브리핑은 한국어로 작성합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: 분석 근거인 호가창 스냅샷(텍스트 설명) 및 거래량 데이터를 포함합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 실시간 저장합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
+- **실시간성**: `inquire_price`, `inquire_asking_price_exp_ccn` 등을 사용하여 최신 데이터 유지.
 
 ## 📊 핵심 매매 원칙 (Core Trading Principles)
 - **Trend is Friend**: 당일 주도 섹터와 거래대금 상위 종목에만 집중합니다.
 - **Risk Managed**: 손절가(Stop-loss) 미준수 시 어떠한 매매도 정당화될 수 없습니다.
 
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_[태그]_종목명_설명.md`
-(예: `20260127_0930_[데이]_우리기술_실시간매매중계.md`)
-
 # ⚔️ day-trading [T] (데이 트레이딩)
-
-## 🛠️ 도구 사용 지침
-- **실시간성**: `inquire_price`, `inquire_asking_price_exp_ccn` 등을 사용하여 최신 데이터 유지.
 
 ## 🎯 분석 목적
 - 장중 발생하는 변동성을 수익으로 연결.

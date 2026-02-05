@@ -3,21 +3,8 @@ name: after-market-trading [T]
 description: 장 마감 후 시간외 거래(NXTrade) 및 공시 분석을 통한 익일 대응 전략 수립
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 모든 분석 결과는 한국어로 작성합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: DART 공시 링크 및 NXTrade 체결 화면 요약을 포함합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
-
-## 📊 핵심 매매 원칙 (Core Trading Principles)
-- **Sustainability**: 시간외 상승이 단발성 뉴스인지, 지속 가능한 모멘텀인지 판별합니다.
-- **NX vs Regular**: 정규장 종가와 NXTrade 체결가 자금 흐름의 괴리를 분석합니다.
-
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_[태그]_종목명_설명.md`
-(예: `20260127_1630_[애프터]_우리기술_시간외분석보고서.md`)
-
-# 🌙 after-market-trading [T] (시간외 분석)
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 ## 🛠️ 도구 사용 지침
 - **NXTrade**: `inquire_overtime_price` 호출 시 `fid_cond_mrkt_div_code='NX'` 필수.

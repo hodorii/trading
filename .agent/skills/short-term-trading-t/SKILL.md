@@ -3,19 +3,12 @@ name: short-term-trading [T]
 description: 3~5일 단기 보유 포지션을 위한 스윙 및 눌림목 공략 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 보고서 본문은 한국어로 작성합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: 일봉 차트 및 주간 수급 데이터를 반드시 포함합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 ## 📊 핵심 매매 원칙 (Core Trading Principles)
 - **Mean Reversion**: 과도한 낙폭 후 되돌림 구간을 노립니다.
 - **Breakout**: 강력한 저항선 돌파 후 안착 구간에 진입합니다.
-
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_[태그]_종목명_설명.md`
-(예: `20260127_1030_[단기]_우리기술_단기전략보고서.md`)
 
 # 🚀 short-term-trading [T] (단기 트레이딩)
 

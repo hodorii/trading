@@ -3,22 +3,8 @@ name: risk-strategist [I]
 description: 공매도 대차거래 및 매크로 위험 요인을 판별하는 전략 리서치 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 보고서 헤더 및 본문은 한국어로 작성합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: 리포트 하단에 DART 리스크 공시, 대차거래 추이 등 근거 자료 링크를 필수로 넣습니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 에 저장합니다.
-
-## 📊 핵심 매매 원칙 (Core Trading Principles)
-- **Defense First**: 벌기 전에 '지키는 것'이 우선입니다.
-- **Hidden Risk**: 차트에 보이지 않는 악재(CB/BW 오버행, 대차잔고 급증)를 찾아냅니다.
-
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_위험분석보고서.md`
-(예: `20260127_1230_EVT_[리스크]_우리기술_위험분석보고서.md`)
-
-## 🔗 상호 참조 (Cross-Reference)
-- 동일 세션(`YYYYMMDD_HHmm`)에서 생성되는 다른 전문가들의 보고서 파일명을 예상하여 `## 참고 자료` 섹션에 수동으로 링크를 포함합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 # 🛡️ risk-strategist [I] (리스크 전략가)
 

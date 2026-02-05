@@ -3,22 +3,18 @@ name: fundamental-analysis [I]
 description: 기업 본질 가치 및 글로벌 밸류에이션 딥다이브를 위한 펀더멘털 분석 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 용어는 최대한 한국어로, 영문은 괄호 병기 처리합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: DART 재무제표, Yahoo Finance 재무 탭 링크를 반드시 첨부합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
+- **원천 데이터 링크**: 분석에 사용된 네이버/야후/DART의 개별 페이지 URL을 각 섹션 하단에 배치.
 
 ## 📊 핵심 매매 원칙 (Core Trading Principles)
 - **Value Investing**: 가격(Price)과 가치(Value)의 괴리를 찾습니다.
 - **Global Peer Check**: 국내 기업의 밸류에이션 적정성은 글로벌 1등 기업과의 비교(Peer Valuation)를 통해 검증합니다.
+- **Why-First (핵심)**: 변동 원인을 요약하되 본문 헤더(#)에는 세션 정보를 포함하지 않습니다. 결론뿐 아니라 근거 수치와 데이터를 상세 표 형태로 반드시 제시해야 합니다.
 
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_기업분석보고서.md`
-(예: `20260127_1230_EVT_[가치]_우리기술_기업분석보고서.md`)
-
-## 🔗 상호 참조 (Cross-Reference)
-- 동일 세션(`YYYYMMDD_HHmm`)에서 생성되는 다른 전문가들의 보고서 파일명을 예상하여 `## 참고 자료` 섹션에 수동으로 링크를 포함합니다.
+## 📄 데이터 증거 요건 (Data Evidence Requirement)
+- **재무 테이블**: 최근 3개년 및 4분기 주요 재무지표(매출, 영업이익, 당기순이익, OPM)를 마크다운 표로 작성.
+- **밸류에이션 지표**: PER, PBR, ROE 등을 피어 그룹과 일대일 대조한 수치 데이터 포함.
 
 # 💎 fundamental-analysis [I] (가치 분석)
 
@@ -52,8 +48,9 @@ description: 기업 본질 가치 및 글로벌 밸류에이션 딥다이브를 
 - **Action**: 최근 3개월 내 핵심 뉴스/공시(M&A, 수주, 특허, 실적 가이던스 등)가 펀더멘털에 미치는 영향 수치화.
 - **Check**: 일시적 호재인가, 영구적인 이익 구조 개선인가 판별.
 
-### 4단계: 적정 주가 산출 (Target Price)
-- **Method**: PER 멀티플, PBR 밴드, 혹은 애널리스트 컨센서스 기반 적정 주가 추정.
+### 4단계: 적정 주가 및 글로벌 컨센서스 (Target Price & Global Consensus)
+- **Action**: PER 멀티플, PBR 밴드, 혹은 국내외 애널리스트 컨센서스 기반 적정 주가 추정.
+- **IB Report Check**: (필수) **골드만삭스, JP모간, 모건스탠리** 등 글로벌 IB의 해당 종목 최신 리포트 요약 및 목표주가 변동 추이 확인.
 - **Gap**: 현재 주가와 적정 주가의 괴리율(%) 계산 (상승 여력).
 
 ---

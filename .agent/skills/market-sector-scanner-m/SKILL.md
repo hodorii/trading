@@ -3,22 +3,8 @@ name: market-sector-scanner [M]
 description: 금일 주식 시황 전체 분석 및 주도 섹터와 종목 추출을 위한 마켓 스캐너
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 리포트 내 영어 사용을 지양하고 한국어 용어를 우선 사용합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: 리포트 하단에 데이터 출처(Reference)를 반드시 명시합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
-
-## 📊 핵심 매매 원칙 (Core Trading Principles)
-- **Top-Down**: 지수 -> 섹터 -> 종목 순으로 분석합니다.
-- **Global Linkage**: 국내 주도주는 반드시 글로벌 동종 기업(Peer)과 비교 분석해야 합니다. (커플링/디커플링 확인)
-
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_설명.md`
-(예: `20260127_1230_EVT_[시장]_전체_섹터스캐너.md`)
-
-## 🔗 상호 참조 (Cross-Reference)
-- 동일 세션(`YYYYMMDD_HHmm`)에서 생성되는 다른 전문가들의 보고서 파일명을 예상하여 `## 참고 자료` 섹션에 수동으로 링크를 포함합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 # 🔍 market-sector-scanner [M]
 

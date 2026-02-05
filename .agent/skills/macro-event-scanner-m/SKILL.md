@@ -3,22 +3,8 @@ name: macro-event-scanner [M]
 description: 거시적 이벤트(뉴스/공시) 발생 시 섹터 간 수급 이동 및 NXT 실시간 반응을 분석하는 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 모든 리포트의 헤더와 핵심 용어는 '한국어'로 작성합니다. (예: 'Overview' -> '개요')
-2. **참고 자료 의무화 (Mandatory Reference)**: 모든 리포트 하단에 `## 참고 자료 (Reference)` 섹션을 만들고, 분석에 사용된 링크(Yahoo, DART 등)를 명시합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
-
-## 📊 핵심 매매 원칙 (Core Trading Principles)
-- **Fact-Based**: 모든 전망은 수치(환율, 금리, 선물 지수)를 근거로 해야 합니다.
-- **Global Correlation**: 한국 시장은 글로벌 변수(미국장, 환율)에 종속적이므로, 이를 최우선으로 분석합니다.
-
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_분석명.md`
-(예: `20260125_1930_IDR_[매크로]_전체_매크로보고서.md`)
-
-## 🔗 상호 참조 (Cross-Reference)
-- 동일 세션(`YYYYMMDD_HHmm`)에서 생성되는 다른 전문가들의 보고서 파일명을 예상하여 `## 참고 자료` 섹션에 수동으로 링크를 포함합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 ## 🛠️ 도구 사용 지침 (Tool Discipline)
 - **명세 우선 확인**: KIS API 호출 전 `find_api_detail` 조회가 필수입니다.

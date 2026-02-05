@@ -3,25 +3,17 @@ name: swing-trading [T]
 description: 1~2주 보유하며 추세의 무릎에서 어깨까지 수익을 추구하는 스윙 매매 워크플로우
 ---
 
-## 🚨 글로벌 규약 (Global Rules)
-1. **한국어 우선 (Korean-First)**: 분석 내용은 한국어로 기술합니다.
-2. **참고 자료 의무화 (Mandatory Reference)**: 주봉/일봉 차트 및 기관/외인 누적 수급표를 첨부합니다.
-3. **폴더 규칙 준수**: `d:\dev\trading\reports\YYYY-MM-DD\` 경로에 저장합니다.
+## 🚨 전문가 공통 준수 사항 (Global Protocol)
+본 스킬은 **`GEMINI.md`**에 정의된 **'공통 보고서 프로토콜'** 및 **'핵심 원칙'**을 엄격히 준수합니다.
 
 ## 📊 핵심 매매 원칙 (Core Trading Principles)
 - **Trend Following**: 이미 형성된 우상향 추세에 올라타는 것을 기본으로 합니다.
 - **Cycle Analysis**: 업황이나 섹터의 순환 주기를 고려합니다.
 
-## 📋 파일명 네이밍 컨벤션
-### 형식
-`YYYYMMDD_HHmm_[태그]_종목명_설명.md`
-(예: `20260127_1100_[스윙]_우리기술_스윙운용전략.md`)
-
 # 🌊 swing-trading [T] (스윙 트레이딩)
 
 ## 🎯 분석 목적
 - 안정적인 우상향 추세 종목의 수익 극대화.
-- 시장 노이즈를 배제한 본질적 추세 추종.
 
 ---
 
