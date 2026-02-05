@@ -23,7 +23,7 @@ description: 매크로, 이벤트, 섹터, 가치, 수급, 리스크, 전략을 
 ### 1단계: 매크로 전문가 (Macro Expert Load)
 -   **Expert Skill**: `macro-event-scanner [M]`
 -   **Output**: `YYYYMMDD_HHmm_IDR_[매크로]_전체_매크로보고서.md`
--   **Task**: 오늘의 시장 기상도 확정 (현물-선물 괴리 중심).
+-   **Task**: 오늘의 시장 기상도 확정 (KRX-NXT 가격 괴리 및 08:30 거래량 급증 테마 선제 포착).
 
 ### 2단계: 이벤트 전문가 (Event Expert Load)
 -   **Expert Skill**: `event-driven [M]`

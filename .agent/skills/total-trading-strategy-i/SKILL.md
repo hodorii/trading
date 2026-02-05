@@ -30,9 +30,10 @@ description: 모든 분석 워크플로우를 통합하여 기관급 리서치�
 
 ## 📈 분석 단계 (Process)
 
-### 1단계: 마켓 및 섹터 파운데이션 (Foundation)
-- **Action**: `market-sector-scanner` 선행 실행.
-- **Check**: 오늘 시장의 색깔과 주도 테마 확인.
+### 1단계: 매크로 전문가 (Macro Expert Load)
+-   **Expert Skill**: `macro-event-scanner [M]`
+-   **Output**: `YYYYMMDD_HHmm_IDR_[매크로]_전체_매크로보고서.md`
+-   **Task**: 오늘의 시장 기상도 확정 (현물-선물 괴리 및 **NXT 거래량 기반 테마 선제 포착**).
 
 ### 2단계: 글로벌 피어 및 지수 동조화 체크 (Peer & Index)
 - **Action**: 분석 대상 종목의 글로벌 경쟁사 주가와 함께 **미국 현물 지수(^IXIC, ^SOX)와 선물(NQ=F)**의 흐름을 대조.
@@ -64,6 +65,7 @@ description: 모든 분석 워크플로우를 통합하여 기관급 리서치�
 4. **실전 매매 로드맵 (Trading Roadmap)**: 
     - **표(Table)**: 종목명, 권장 매수 타점(Buy Zone), 목표가, 손절가, 비중
     - **실행 전략**: 시간대별 진입/청산 지침
+    - **핵심 전술**: **[필수] 라운드 피겨 매도** (목표가 1~2호가 아래 미리 매도 대기하여 체결 확률 극대화)
 5. **결론 및 실행 계획**
 6. **참고 자료 (Reference)**
 
