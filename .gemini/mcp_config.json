@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "naver-finance": {
-      "command": "d:/dev/naver-trading/naver-finance-mcp.exe",
+      "command": "/home/hodorii/dev/naver-trading/naver-finance-mcp.exe",
       "args": [],
       "disabled": false
     },
