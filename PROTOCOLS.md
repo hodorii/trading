@@ -9,6 +9,7 @@
 
 ### 2. [GP-SPEC] KIS API 명세 우선 (Spec First)
 - 호출 전 `find_api_detail` 필수 수행.
+- **필수 인자 준수**: `env_dv`('real'/'demo') 등 API별 필수 파라미터 누락 방지를 위해 반환된 명세를 엄격히 준수한다.
 - 추측 금지. 사용 API명 및 필수 `fid_` 인자 리포트 하단 적시.
 
 ### 3. [GP-EBR] 근거 중심 리포팅 (Evidence-Based)
