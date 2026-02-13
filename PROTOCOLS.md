@@ -17,8 +17,16 @@
 - 모든 보고서 상단에 **Quick Scan Matrix (🔴/🟡/🟢)** 포함.
 
 ### 4. [GP-VFY] 데이터 교차 검증 (Cross-Check)
-- KIS 데이터 기본 + Naver/Yahoo 대조.
+- KIS 데이터 기본 + **Yahoo Finance/Naver Stock MCP** 대조 필수.
+- **Yahoo (get_current_stock_price)**: 나스닥 선물(`NQ=F`), S&P500 선물(`ES=F`), 환율(`USDKRW=X`) 실시간 확인.
+- **Naver (search_stock)**: 국내 종목 테마 및 실시간 수급 보완.
 - 괴리 발생 시 `[리스크]` 보고서에 수치 기입 및 경고.
 
 ### 5. [GP-REV] 복기 우선 (Review First)
 - 분석 시작 전 "어제 가설 vs 오늘 결과" 대조 및 가중치 보정.
+
+### 6. [GP-KIS-EX] KIS API 호출 예시 (Golden Examples)
+- **잔고 조회**: `domestic_stock({ "api_type": "inquire_balance", "params": { "afhr_flpr_yn": "N", "env_dv": "real", "fncg_amt_auto_rdpt_yn": "N", "fund_sttl_icld_yn": "N", "inqr_dvsn": "02", "prcs_dvsn": "01", "tr_cont": "", "unpr_dvsn": "01" } })`
+- **투자자별 매매동향**: `domestic_stock({ "api_type": "inquire_investor", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })`
+- **시간외/NX 시세**: `domestic_stock({ "api_type": "inquire_overtime_price", "params": { "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })` (NX 시장은 `fid_cond_mrkt_div_code: "NX"`)
+- **일자별 가격**: `domestic_stock({ "api_type": "inquire_daily_price", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930", "fid_org_adj_prc": "1", "fid_period_div_code": "D" } })`

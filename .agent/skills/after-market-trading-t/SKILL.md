@@ -10,6 +10,13 @@ description: 장 마감 후 시간외 거래(NXTrade) 및 공시 분석을 통�
 - **데이터 대조 필수 (Cross-Check)**: `inquire_overtime_price` 호출 시 `fid_cond_mrkt_div_code='NX'`(단일가/야간)와 `'J'`(일반 시간외) 데이터를 반드시 동시에 조회하여 대조합니다.
 - **체결량 확인**: `ovtm_untp_vol`이 0인 경우 해당 시간대의 데이터가 아직 생성되지 않았거나 거래가 없는 것이므로, 이를 장중 종가와 혼동하여 보고하지 않습니다.
 
+### ⚠️ API 호출 규격 (Troubleshooting)
+- **`env_dv` 사용 금지**: `inquire_overtime_price`, `news_title` (TypeError 방지)
+- **`env_dv` 누락 금지**: `inquire_daily_price`, `inquire_ccnl`
+- **`news_title` 필수 전송**: 아래 9개 파라미터 누락 없이 전송
+  - `{"fid_news_ofer_entp_code":"000", "fid_cond_mrkt_cls_code":"01", "fid_input_iscd":"종목코드", "fid_input_date_1":"YYYYMMDD", "fid_input_hour_1":"HHMMSS", "fid_rank_sort_cls_code":"1", "fid_input_srno":"0000000000", "fid_titl_cntt":"", "tr_cont":""}`
+- **`inquire_daily_price` 필수값**: `fid_period_div_code='D'` 및 `env_dv` 명시적 설정
+
 ## 🎯 분석 목적
 - 장 마감 후 발생한 공시/뉴스의 실제 수급 반영 여부 확인.
 - 시간외(NXTrade) 가격 변동과 호가 잔량을 통한 익일 시초가 신뢰도 측정.
