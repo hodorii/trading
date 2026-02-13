@@ -1,122 +1,88 @@
-# AGENTS.md - Antigravity Trading Intelligence System
+# 🚨 최상위 절대 원칙: 한국어 기반 커뮤니케이션
 
-## Build/Lint/Test Commands
+모든 활동(생각, 도구 호출 파라미터 제외 모든 텍스트, 아티팩트, 질문, 답변)은 **한국어**로만 수행해야 합니다.
 
-This is an **Agentic AI System** with no traditional build/lint/test commands. The system operates through:
+## 📋 핵심 원칙 (Core Principles)
+- **풍부한 증거 (Data Richness - Hard Facts)**: '요약'은 상단에 배치하되, 본문 전반에는 분석의 근거가 되는 원천 데이터(KIS/Naver/Yahoo/DART)를 **마크다운 표와 절대적 수치**로 풍부하게 포함해야 합니다. "매출이 상승했다"는 표현 대신 "전년 대비 15.3% 상승한 93.8조 원 기록"과 같이 수치화된 증거를 제시하지 않는 것은 SRP 위반입니다.
+- **글로벌-국내 동기화 (Strict Sync)**: 국내 뉴스/공시(Naver/DART)와 **글로벌 인텔리전스(Yahoo News/Recommendations, 글로벌 IB 보고서)**를 일대일 대조하십시오. 특히 외인 매도/매수가 집중되는 경우, 골드만삭스/모건스탠리 등 주요 IB의 최신 리포트 및 목표주가 하향/상향 여부를 반드시 확인하여 수급의 근거를 찾아야 합니다.
+- **Why-First (핵심)**: 모든 보고서 최상단에 **'금일 주가 및 시장 변동의 직접적 동인'**을 3문장 이내로 요약 배치합니다. 이때, **보고서 본문 헤더(#)에는 파일명과 중복되는 세션 정보(Session: HHmm 등)를 절대 포함하지 않습니다.**
+- **하드코딩 금지 (No Hardcoding)**: 모든 경로(특히 보고서 저장 경로)는 하드코딩하지 않습니다. 반드시 `.env` 파일의 환경 변수(`REPORTS_DIR`)를 참조하거나 워크스페이스 기준의 상대 경로를 사용합니다.
+- **Fact-Based (사실 기반)**: 모든 판단과 가설은 확인된 사실(Fact)과 데이터(Raw Data)를 근거로 해야 합니다.
+- **Data Integrity (데이터 완전성)**: 특정 데이터 소스(예: 네이버)만 의존하지 않고, **KIS API 실측 데이터(잔고/호가/체결량)**와 교차 검증(Cross-Check)을 수행해야 합니다. 특히 시간외 단일가 거래량 급증이 허수인지 진성인지 판별하는 로직은 필수입니다.
+- **Git Persistence (Git 즉시 반영)**: 워크플로우, 스킬, 프로토콜 등 시스템 설정 파일 수정 시나 리포트 생성 시, 반드시 `git commit` 및 `git push`를 수행하여 변경 사항을 영구 보존해야 합니다. (중대 변경 시 브랜치 전략 활용)
+- **Korean-First (한국어 우선)**: 모든 텍스트는 한국어로 작성하며, "Event Analysis"와 같은 영문 표현 대신 "이벤트 분석"과 같이 순화된 표현을 사용합니다.
 
-### Core Execution Commands
-- **Main Workflows**: Execute via `.agent/workflows/*.md` files
-  - `integrated-daily-routine.md` - IDR (Integrated Daily Routine) 
-  - `multi-agent-decision.md` - MAD (Multi-Agent Decision)
-  - `timeline-trading-ops.md` - TTO (Timeline Trading Ops)
-- **Skills**: Execute via `.agent/skills/*/SKILL.md` files
-- **MCP Servers**: Configure via `.gemini/mcp_config.json` and `.agent/mcp_config.json`
 
-### MCP Server Commands
-```bash
-# Naver Finance API
-d:/dev/naver-trading/naver-finance-mcp.exe
+## 📋 공통 보고서 프로토콜 (Common Reporting Protocol)
+모든 워크플로우와 스킬은 별도의 명시가 없어도 아래의 공통 규칙을 최우선으로 준수해야 합니다.
 
-# Yahoo Finance API  
-uvx mcp-yahoo-finance
+### 📁 파일 네이밍 컨벤션 (File Naming Convention)
 
-# KIS Trading Remote
-npx -y mcp-remote http://localhost:3000/sse
-
-# Sequential Thinking (disabled by default)
-npx -y @modelcontextprotocol/server-sequential-thinking
-```
-
-### Python Scripts
-```bash
-# Refactor report filenames
-python scripts/refactor_filenames.py
-```
-
-## Code Style Guidelines
-
-### Language Policy
-- **Korean-First**: ALL content, analysis, reports, and communication MUST be in Korean
-- **No English**: English expressions like "Event Analysis" are forbidden - use "이벤트 분석"
-- **Pure Korean**: Use pure Korean expressions in YAML descriptions and all text content
-
-### File Naming Convention
+#### 기본 형식
 ```
 YYYYMMDD_HHmm_WorkflowID_[태그]_종목명_설명.md
 ```
 
-#### Components
-- **YYYYMMDD**: Execution date (e.g., 20260205)
-- **HHmm**: Session ID using execution time (e.g., 1956)
-- **WorkflowID**: Workflow identifier (IDR, MAD, TTO)
-- **[태그]**: Report type identifier
-- **종목명**: Analysis target or "전체" for market analysis
-- **설명**: Report content summary
+#### 구성 요소
+- **YYYYMMDD**: 실행 날짜 (예: 20260205)
+- **HHmm**: 세션 ID로 사용되는 실행 시각 (예: 1956)
+- **WorkflowID**: 워크플로우 식별자 (IDR, MAD, TTO 등)
+- **[태그]**: 리포트 유형 식별자 (아래 표 참조)
+- **종목명**: 분석 대상 종목명 또는 "전체" (섹터/매크로 분석 시)
+- **설명**: 리포트 내용 요약 (예: 가치분석, 수급분석, 최종통합전략)
 
-#### Tag System by Workflow
-| Workflow | WorkflowID | 태그 | Description | Example |
-|----------|-----------|------|-------------|---------|
-| IDR | IDR | [매크로] | Macro index analysis | `20260205_1956_IDR_매크로_전체_매크로지수분석.md` |
-| IDR | IDR | [이벤트] | Major event analysis | `20260205_1956_IDR_이벤트_전체_주요이벤트분석.md` |
-| IDR | IDR | [시장] | Sector scanner | `20260205_1956_IDR_시장_전체_섹터스캐너.md` |
-| IDR | IDR | [가치] | Stock value analysis | `20260205_1956_IDR_가치_삼성전자_가치분석.md` |
-| IDR | IDR | [수급] | Stock supply-demand analysis | `20260205_1956_IDR_수급_삼성전자_수급분석.md` |
-| IDR | IDR | [리스크] | Stock risk analysis | `20260205_1956_IDR_리스크_삼성전자_위험분석.md` |
-| IDR | IDR | [결정] | Integrated stock strategy | `20260205_1956_IDR_결정_삼성전자_최종통합전략.md` |
-| MAD | MAD | [결정] | Final integrated strategy | `20260205_1956_MAD_결정_삼성전자_최종통합전략.md` |
-| MAD | MAD | [가이드] | Practical easy guide | `20260205_1956_MAD_가이드_삼성전자_실전가이드.md` |
-| TTO | TTO | [장전] | Pre-market briefing | `20260205_0830_TTO_장전_전체_시장브리핑.md` |
+#### 워크플로우별 태그 체계
 
-### Directory Structure & File Storage
-- **Reports**: Stored in `reports/YYYY-MM-DD/` (from `REPORTS_DIR` env var)
-- **Workflows**: `.agent/workflows/*.md`
-- **Skills**: `.agent/skills/*/SKILL.md`
-- **Config**: `.gemini/` and `.agent/` for MCP settings
-- **Scripts**: `scripts/` for utility scripts
+| 워크플로우 | WorkflowID | 태그     | 설명             | 파일명 예시                                       |
+| ---------- | ---------- | -------- | ---------------- | ------------------------------------------------- |
+| **IDR**    | IDR        | [매크로] | 매크로 지수 분석 | `20260205_1956_IDR_매크로_전체_매크로지수분석.md` |
+|            |            | [이벤트] | 주요 이벤트 분석 | `20260205_1956_IDR_이벤트_전체_주요이벤트분석.md` |
+|            |            | [시장]   | 섹터 스캐너      | `20260205_1956_IDR_시장_전체_섹터스캐너.md`       |
+|            |            | [가치]   | 종목 가치 분석   | `20260205_1956_IDR_가치_삼성전자_가치분석.md`     |
+|            |            | [수급]   | 종목 수급 분석   | `20260205_1956_IDR_수급_삼성전자_수급분석.md`     |
+|            |            | [리스크] | 종목 위험 분석   | `20260205_1956_IDR_리스크_삼성전자_위험분석.md`   |
+|            |            | [결정]   | 종목 통합 전략   | `20260205_1956_IDR_결정_삼성전자_최종통합전략.md` |
+|            |            | [요약]   | 세션 요약        | `20260205_1956_IDR_요약_전체_세션요약.md`         |
+| **MAD**    | MAD        | [결정]   | 최종 통합 전략   | `20260205_1956_MAD_결정_삼성전자_최종통합전략.md` |
+|            |            | [가이드] | 실전 쉬운 가이드 | `20260205_1956_MAD_가이드_삼성전자_실전가이드.md` |
+|            |            | [통합]   | 종합 분석 보고서 | `20260205_1956_MAD_통합_전체_종합분석.md`         |
+| **TTO**    | TTO        | [장전]   | 장전 브리핑      | `20260205_0830_TTO_장전_전체_시장브리핑.md`       |
+|            |            | [장중]   | 장중 실전 대응   | `20260205_1030_TTO_장중_삼성전자_실시간분석.md`   |
+|            |            | [장후]   | 장후 수사        | `20260205_1600_TTO_장후_전체_공시분석.md`         |
 
-### YAML Discipline
-- **Pure Korean**: Use only Korean text in YAML description fields
-- **No Special Characters**: Avoid colons, brackets, quotes in YAML text fields
-- **Minimal Quotes**: Use double quotes only when absolutely necessary (except for tickers, variable names)
-- **Clean Parsing**: Prevent YAML parsing errors with careful character usage
+### 📂 저장 경로 규칙
+- **기본 경로**: `.env`의 `REPORTS_DIR` 환경 변수 참조
+- **날짜별 폴더**: `REPORTS_DIR/YYYY-MM-DD/` 형식으로 자동 생성
+- **예시**: `d:\dev\trading\reports\2026-02-05\20260205_1956_IDR_가치_삼성전자_가치분석.md`
 
-### Data & Content Requirements
-- **Data Richness**: Include raw data, markdown tables, and absolute numerical values
-- **Evidence-Based**: All analysis must include source data URLs and cross-references
-- **Global-Domestic Sync**: Correlate Korean data (Naver/DART) with global data (Yahoo/IB reports)
-- **Why-First**: Start reports with direct market drivers in 3 sentences or less
-- **No Hardcoding**: Use environment variables or relative paths for all file paths
+### 🔗 상호 참조 (Cross-Reference)
+리포트 하단에 **`## 참고 자료`** 섹션을 필수 생성하고, 다음을 포함합니다:
+- 분석에 사용된 원천 데이터 링크 (Yahoo Finance, DART, Naver Finance)
+- 동일 세션(`YYYYMMDD_HHmm`) 내의 다른 리포트 링크
+- 선행 워크플로우 리포트 링크 (MAD의 경우 IDR 리포트 참조)
 
-### Error Handling & Validation
-- **Session Integrity**: File timestamps must match `ADDITIONAL_METADATA` current local time
-- **Future Timestamps Forbidden**: Never use future timestamps in report content
-- **Data Cross-Check**: Validate KIS API data against Naver/DART sources
-- **Auto-Discovery**: Automatically discover top 3-5 promising stocks when no specific target provided
+### 🔄 세션 및 시각 정합성 (Full Sync & Truthful Timestamping)
+- **시스템 시각 참조**: 모든 보고서 본문의 "발행 시각"은 반드시 제공된 `ADDITIONAL_METADATA`의 `current local time`을 정밀 조회하여 작성합니다. 추측하거나 미래 시점을 기입하는 것은 치명적 결격 사유입니다.
+- **세션 ID 일치**: 파일명에 포함된 `HHmm`과 본문의 `발행 시각`은 세션의 통일성을 위해 동일한 기준 시각(세션 시작 시각)을 사용하는 것을 원칙으로 합니다.
+- **미래 시점 금지**: 어떤 경우에도 본문의 발행 시각이 현재 시스템 시각보다 앞설 수 없습니다.
+- **세션 정합성 (Full Re-run)**: 새로운 세션이 시작되면 이전 세션의 데이터를 재사용하지 않고 최신 데이터를 기반으로 모든 분석을 **완전 새로 고침(Full Fresh Execution)**합니다.
 
-### Import & Code Conventions
-- **Python Scripts**: Use standard Python conventions (PEP 8)
-- **MCP Configuration**: JSON format with server command definitions
-- **Markdown Files**: Korean content with structured headers and data tables
+### 🔗 워크플로우 체인 무결성 (Workflow Chain Integrity)
+3대 핵심 워크플로우(`IDR`, `TTS`, `MAD`)는 상호 의존성을 가집니다. 상위 의사결정 워크플로우(`MAD`, `TTS`) 실행 시, 반드시 하위 팩트 리포트(`IDR`)가 **동일 세션(`YYYYMMDD_HHmm`) 기준**으로 존재해야 합니다. 만약 다른 시간대의 데이터이거나 존재하지 않을 경우, 에이전트는 **즉시 선행 워크플로우(IDR)를 동일 시점 기준으로 재실행(Re-run)**하여 데이터를 확보한 후 진행해야 합니다.
 
-### Testing & Quality Assurance
-- **No Traditional Tests**: Quality is ensured through data validation and report generation
-- **Report Validation**: Check for Korean content, proper naming, data completeness
-- **Cross-Reference Validation**: Ensure all referenced reports and data sources exist
-- **Session Consistency**: Verify all reports in a session use consistent timestamps
+- **IDR (Integrated Daily Routine)**: 모든 분석의 기초가 되는 팩트(Fact) 생성 (세션 ID 생성의 원점)
+- **TTS (Total Trading Strategy)**: IDR의 팩트 데이터를 기반으로 매매 전략 수립 (동일 세션 IDR 필수)
+- **MAD (Multi-Agent Decision)**: IDR/TTS를 포괄하여 최종 의사결정 (동일 세션 IDR 필수)
 
-## Environment Variables
-- `REPORTS_DIR`: Base directory for storing generated reports
+### 🤖 자동 발굴 및 매트릭스 리포팅 (Auto-Discovery & Matrix Reporting)
+- **Auto-Discovery**: 사용자가 특정 종목을 입력하지 않은 경우, 에이전트는 즉시 **[매크로 → 섹터 → 종목]** 순의 Top-Down 스캐닝을 수행하여 **Top 3-5 유망 종목**을 스스로 발굴해야 합니다.
+- **Matrix Reporting**: 3개 이상의 종목을 동시에 분석할 경우, 개별 리포트 생성 대신 가치/수급/리스크 등을 한눈에 비교할 수 있는 **'매트릭스(Matrix) 형태의 통합 리포트'** 생성을 허용합니다. (단, [결정] 리포트는 종목별 전략을 명시해야 함)
 
-## MCP Servers Configuration
-Primary data sources configured in `.gemini/mcp_config.json`:
-- `naver-finance`: Korean financial data
-- `yahoo-finance`: Global market data  
-- `kis-trading-remote`: Real-time trading API
-- `sequential-thinking`: Advanced reasoning (disabled by default)
+## 🛠️ 기술 가이드라인 (Technical Guidelines)
 
-## Steering Instructions
-1. **Workflows First**: Always reference `.agent/workflows/*.md` files for workflow execution
-2. **Korean Language Policy**: Default language is Korean - all outputs must follow this
-3. **SRP (Single Responsibility)**: Each expert/skill focuses on its specific domain only
-4. **Data Integrity**: Never rely on single data source - always cross-validate
-5. **Fact-Based Analysis**: All judgments must be based on verified facts and data
+### 워크플로우 및 스킬 작성 원칙 (Workflows & Skills Authoring Rules)
+- **YAML Discipline**: 워크플로우 작성 시 YAML 헤더의 description 등 텍스트 필드에는 특수 기호(콜론, 대괄호, 따옴표 등)를 지양하고 순수 한글 표현을 사용합니다.
+- **Skills 작성 원칙**: 스킬 정의 시 명확한 YAML 헤더와 상세한 마크다운 지시사항을 포함해야 하며, 개별 파일에서 반복되는 공통 규칙은 생략하고 `GEMINI.md`를 참조하게 합니다.
+
+## ⚠️ 위반 시 조치
+영문이 포함된 결과물이나 공통 프로토콜을 위반한 리포트는 즉시 시스템 오류로 간주하고, 모든 작업을 중단한 후 스스로 전면 재수정해야 합니다.

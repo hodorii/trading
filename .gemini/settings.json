@@ -1,4 +1,5 @@
 {
+  "contextFileNames":["AGENTS.md", ".agent/PROTOCOLS.md"],
   "mcpServers": {
     "naver-finance": {
       "command": "/home/hodorii/dev/naver-trading/naver-finance-mcp.exe",
