@@ -2,16 +2,16 @@
 description: 팩트 중심 분석 및 전략적 근거 집대성 루틴
 ---
 
-# 🔄 integrated-daily-routine [I]
+# integrated-daily-routine
 
-## 🎯 목표
+## 목표
 [Phase 0-3]을 통한 정밀 실측 및 최종 변론서 작성.
 
-## 🚨 준수: [PROTOCOLS.md] 전 항목 (GP-ETO, GP-SPEC, GP-EBR, GP-VFY, GP-REV)
+## 준수: [PROTOCOLS.md] 전 항목 (GP-ETO, GP-SPEC, GP-EBR, GP-VFY, GP-REV)
 
 ---
 
-## 🛠️ Pipeline (9-Step)
+## Pipeline (9-Step)
 
 ### [Phase 0: Review]
 - **0. Review**: [GP-REV] 수행. 어제 결정 대비 오늘 성과 실측.

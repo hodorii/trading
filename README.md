@@ -1,4 +1,4 @@
-# 🚀 Antigravity: Multi-Agent Trading Intelligence System
+# Antigravity: Multi-Agent Trading Intelligence System
 
 > **"지수와 종목을 잇는 입체적 시각, 데이터 오염 없는 순수한 의사결정"**
 
@@ -14,7 +14,7 @@ Antigravity는 단순히 데이터만 나열하는 것이 아니라, **운영 - 
 -   시점별(장전/장중/장후) 최적 분석 모드를 결정하는 **마스터 스케줄러**.
 
 ### 🔵 Tier 2: 생산 (IDR & [T] Skills)
--   **IDR [I]**: 6대 전문가(매크로, 이벤트, 섹터, 가치, 수급, 리스크)의 객관적 **팩트 리포트** 생산.
+-   **IDR**: 6대 전문가(매크로, 이벤트, 섹터, 가치, 수급, 리스크)의 객관적 **팩트 리포트** 생산.
 -   **Tactical [T]**: 데이트레이딩, 스윙 등 스타일별 **실전 전술 리포트** 생산.
 
 ### 🔴 Tier 3: 판단 (MAD - Multi-Agent Decision)
@@ -59,7 +59,7 @@ Antigravity는 단순히 데이터만 나열하는 것이 아니라, **운영 - 
 ## 🚀 Quick Start
 
 1.  **에이전트 로딩**: `antigravity`를 기동하고 환경 변수를 확인합니다.
-2.  **분석 및 결정**: `/multi-agent-decision [I] 종목명`을 호출합니다. (IDR 팩트 부재 시 자동으로 선행 수행됨)
+2.  **분석 및 결정**: `/multi-agent-decision 종목명`을 호출합니다. (IDR 팩트 부재 시 자동으로 선행 수행됨)
 3.  **리포트 확인**: `reports/YYYY-MM-DD/` 폴더에서 생성된 팩트 리포트 6종과 MAD의 **'최종통합전략'**, **'실전쉬운가이드'** 패키지를 검토합니다.
 
 ---

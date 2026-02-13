@@ -2,13 +2,13 @@
 description: 장전-장중-장후-심야 데이터 내러티브 관리
 ---
 
-# 🕒 timeline-trading-ops [I]
+# timeline-trading-ops
 
-## 🚨 준수: [PROTOCOLS.md] 전 항목
+## 준수: [PROTOCOLS.md] 전 항목
 
 ---
 
-## 🛠️ Sequence
+## Sequence
 
 ### 1. 장전 [가설] (08:00~09:00)
 - 미 증시 기반 금일 주도 테마/범위 가설 수립.

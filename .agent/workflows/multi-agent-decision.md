@@ -2,14 +2,14 @@
 description: IDR 기반 최종 투자의견 결정 및 실행 확약
 ---
 
-# 🛠️ multi-agent-decision [I]
+# multi-agent-decision
 
-## 🚨 준수: [PROTOCOLS.md] (GP-ETO, GP-EBR)
+## 준수: [PROTOCOLS.md] (GP-ETO, GP-EBR)
 - **중복 금지**: IDR 팩트 재진술 시 즉시 중단. 오직 **[판단]**과 **[행동]**만 기록.
 
 ---
 
-## 🛠️ Pipeline
+## Pipeline
 
 ### 1. Context Sync
 - NQ=F, ES=F, 환율 최종 실측 ➡️ 시장 기조(Sentiment) 확정.

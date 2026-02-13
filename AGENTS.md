@@ -6,9 +6,9 @@ This is an **Agentic AI System** with no traditional build/lint/test commands. T
 
 ### Core Execution Commands
 - **Main Workflows**: Execute via `.agent/workflows/*.md` files
-  - `integrated-daily-routine [I].md` - IDR (Integrated Daily Routine) 
-  - `multi-agent-decision [I].md` - MAD (Multi-Agent Decision)
-  - `timeline-trading-ops [I].md` - TTO (Timeline Trading Ops)
+  - `integrated-daily-routine.md` - IDR (Integrated Daily Routine) 
+  - `multi-agent-decision.md` - MAD (Multi-Agent Decision)
+  - `timeline-trading-ops.md` - TTO (Timeline Trading Ops)
 - **Skills**: Execute via `.agent/skills/*/SKILL.md` files
 - **MCP Servers**: Configure via `.gemini/mcp_config.json` and `.agent/mcp_config.json`
 
