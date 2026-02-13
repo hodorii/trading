@@ -30,3 +30,13 @@
 - **투자자별 매매동향**: `domestic_stock({ "api_type": "inquire_investor", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })`
 - **시간외/NX 시세**: `domestic_stock({ "api_type": "inquire_overtime_price", "params": { "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })` (NX 시장은 `fid_cond_mrkt_div_code: "NX"`)
 - **일자별 가격**: `domestic_stock({ "api_type": "inquire_daily_price", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930", "fid_org_adj_prc": "1", "fid_period_div_code": "D" } })`
+
+### 7. [GP-GIT] Git 반영 정책 (Git Persistence)
+- **설정 파일 수정 (Workflow/Skill/Protocol)**:
+    - **중대 변경**: `git branch` 생성 후 작업 및 `merge` 수행.
+    - **단순 수정**: 현재 브랜치에 즉시 `git commit`.
+    - **공통**: 작업 완료 후 반드시 `git push origin main` (또는 활성 브랜치) 수행.
+- **보고서 생성 (Reports)**:
+    - 보고서 파일(`reports/` 하위) 생성 즉시 `git commit` 및 `git push` 필수.
+    - 커밋 메시지 컨벤션 준수 (예: `feat(report): YYYYMMDD_HHmm 분석 보고서 추가`).
+
