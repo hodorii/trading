@@ -9,7 +9,8 @@
 
 ### 2. [GP-SPEC] KIS API 명세 우선 (Spec First)
 - 호출 전 `find_api_detail` 필수 수행.
-- **필수 인자 준수**: `env_dv`('real'/'demo') 등 API별 필수 파라미터 누락 방지를 위해 반환된 명세를 엄격히 준수한다.
+- **파라미터 엄격 준수**: `find_api_detail`이 반환한 `params` 목록에 없는 인자는 절대 포함하지 않는다.
+- **env_dv 주의**: `env_dv`('real'/'demo')는 대부분의 주문/잔고 API에서 필수이나, `inquire_overtime_price` 등 **일부 시세 조회 API에서는 허용되지 않으므로(TypeError 발생)** 반드시 명세를 선확인한다.
 - 추측 금지. 사용 API명 및 필수 `fid_` 인자 리포트 하단 적시.
 
 ### 3. [GP-EBR] 근거 중심 리포팅 (Evidence-Based)

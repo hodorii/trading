@@ -3,27 +3,23 @@ description: 한국투자증권(KIS) API 호출의 정확성을 보장하기 위
 
 # 🚨 KIS API 호출의 절대 원칙
 1. **명세 우선 확인**: 새로운 API를 사용하기 전 무조건 `find_api_detail`을 실행한다.
-2. **필수 인자 누락 금지**: 상세 명세에 `required: true`로 표시된 모든 `fid_...` 인자는 반드시 포함한다.
-3. **데이터 타입 준수**: 문자열인지 숫자인지 확인하여 정확한 형식으로 전달한다.
+2. **파라미터 엄격 준수**: `find_api_detail`의 `params` 목록에 없는 인자(특히 `env_dv`)를 임의로 추가하여 호출하지 않는다.
+3. **필수 인자 누락 금지**: 상세 명세에 `required: true`로 표시된 모든 `fid_...` 인자는 반드시 포함한다.
+4. **데이터 타입 준수**: 문자열인지 숫자인지 확인하여 정확한 형식으로 전달한다.
 
 # 🛠️ 주요 API별 완벽 호출 가이드
 
-## 1. 종목별 투자자 매매동향 (`investor_trade_by_stock_daily`)
-- **목적**: 외국인, 기관, 개인의 일별 순매집 수량 및 금액 확인.
+## 1. 시간외/NX 현재가 (`inquire_overtime_price`)
+- **목적**: 정규장 이후 시간외 단일가 또는 넥스트레이드(NX) 시세 확인.
 - **필수 파라미터**:
     - `fid_cond_mrkt_div_code`: 시장 구분 (J: KRX, NX: NXT)
     - `fid_input_iscd`: 종목코드 (6자리)
-    - `fid_input_date_1`: 조회 시작일 (YYYYMMDD)
-    - `fid_org_adj_prc`: 보통 공란 ('')
-    - `fid_etc_cls_code`: 보통 공란 ('')
+- **주의**: **`env_dv` 인자를 지원하지 않음**. 포함 시 `TypeError` 발생.
 - **예시**:
   ```python
-  domestic_stock(api_type="investor_trade_by_stock_daily", params={
+  domestic_stock(api_type="inquire_overtime_price", params={
       "fid_cond_mrkt_div_code": "J",
-      "fid_input_iscd": "005930",
-      "fid_input_date_1": "20260126",
-      "fid_org_adj_prc": "",
-      "fid_etc_cls_code": ""
+      "fid_input_iscd": "005930"
   })
   ```
 
