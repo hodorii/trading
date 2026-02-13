@@ -38,6 +38,7 @@
     - **단순 수정**: 현재 브랜치에 즉시 `git commit`.
     - **공통**: 작업 완료 후 반드시 `git push origin main` (또는 활성 브랜치) 수행.
 - **보고서 생성 (Reports)**:
-    - 보고서 파일(`reports/` 하위) 생성 즉시 `git commit` 및 `git push` 필수.
-    - 커밋 메시지 컨벤션 준수 (예: `feat(report): YYYYMMDD_HHmm 분석 보고서 추가`).
+    - 개별 파일 생성 시마다 푸시하지 않고, **해당 세션(TTO, IDR, MAD 등)의 모든 워크플로우가 종료된 시점에 일괄** `git add`, `git commit`, `git push`를 수행한다.
+    - 커밋 메시지는 세션의 성격을 대표하도록 작성한다. (예: `feat(report): 20260213_1907 통합 분석 세션 완료`)
+    - 긴급 공시나 특이 사항은 예외적으로 즉시 반영할 수 있다.
 
