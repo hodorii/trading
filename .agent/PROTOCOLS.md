@@ -32,7 +32,18 @@
 - **시간외/NX 시세**: `domestic_stock({ "api_type": "inquire_overtime_price", "params": { "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })` (NX 시장은 `fid_cond_mrkt_div_code: "NX"`)
 - **일자별 가격**: `domestic_stock({ "api_type": "inquire_daily_price", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930", "fid_org_adj_prc": "1", "fid_period_div_code": "D" } })`
 
-### 7. [GP-GIT] Git 반영 정책 (Git Persistence)
+### 7. [GP-ERN] 실적 우선 원칙 (Earnings Integrity)
+- 성장주 섹터에서 **'전년 대비 영업이익 감소(역성장)'**가 확인될 경우, 배당이나 자산 매입 등 모든 호재보다 이를 우선 순위에 두고 '리스크'로 분류한다.
+- 실적 쇼크 종목은 기술적 반등 시 '탈출'을 최우선 가이드로 제공한다.
+
+### 8. [GP-LIQ] 유동성 및 수급 가중치 (Liquidity Weight)
+- 지수 고점(ATH) 구간에서는 중소형주보다 **외국인/기관의 패시브 자금이 유입되는 시총 상위 대형주**에 가중치를 두어 분석한다.
+- 기관의 매도를 외국인이 받아내는 '손바뀜' 발생 시, 이를 강력한 추세 전환 신호로 실측한다.
+
+### 9. [GP-DVP] 배당 및 주주환원 검증 (Dividend Validation)
+- 실적 역성장 구간에서의 고배당 공시는 '주가 하락 방어용'일 가능성이 높으므로, 이를 '성장 모멘텀'으로 오인하지 말고 펀더멘털과 대조한다.
+
+### 10. [GP-GIT] Git 반영 정책 (Git Persistence)
 - **설정 파일 수정 (Workflow/Skill/Protocol)**:
     - **중대 변경**: `git branch` 생성 후 작업 및 `merge` 수행.
     - **단순 수정**: 현재 브랜치에 즉시 `git commit`.
