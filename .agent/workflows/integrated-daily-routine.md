@@ -7,7 +7,12 @@ description: 팩트 중심 분석 및 전략적 근거 집대성 루틴
 ## 목표
 [Phase 0-3]을 통한 정밀 실측 및 최종 변론서 작성.
 
-## 준수: [PROTOCOLS.md] 전 항목 (GP-ETO, GP-SPEC, GP-EBR, GP-VFY, GP-REV)
+## 준수: [PROTOCOLS.md] 전 항목 (GP-ETO, GP-SPEC, GP-EBR, GP-VFY, GP-REV) 및 아카이빙 규칙
+- **[GP-FNAME]**: `YYYY-MM-DD-HHmm-SEQ-Title.md` 엄수.
+- **[GP-TINT]**: 제목/파일명에서 `[` `]` 제거, `_`를 구분자로 사용.
+- **[GP-SEQ]**: Review(01) > Macro(02) > Event(03) > Market(04) > Value(05) > Supply(06) > Risk(07) > Synthesis(08) > Summary(09) > TSM(10) > Decision(11) > Guide(12) > Unified(13).
+- **[GP-META]**: YAML Front Matter (session_id, session_order, title, layout: post) 필수.
+- **[GP-SESS]**: 15분 이내 동일 주제 리포트는 동일 HHmm 세션 ID 공유.
 
 ---
 

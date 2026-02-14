@@ -1,68 +1,53 @@
-# 📜 Trading Agent Global Protocols (v1.1)
+# 📜 Trading Agent Global Protocols (v1.2)
 
 본 저장소의 모든 에이전트는 아래 규정을 강제 준수한다.
 
-### 1. [GP-ETO] 시각 관리 (Execution-Time vs Session-Time)
-- **파일명**: `YYYYMMDD_HHmm_[TAG]_NAME.md` 형식을 사용하며, `HHmm`은 해당 분석 **세션의 시작 시각**으로 통일하여 리포팅 서버에서 그룹화되도록 한다.
-- **본문 시각**: 리포트 내부의 '발행 시각'은 `date` 명령어의 **실제 호출 시각(실측치)**을 정직하게 기록한다.
-- 미래 시점 기입 금지. 데이터 정직성 최우선.
+### 1. [GP-ETO] 시각 관리 및 KST 준수 (Time Management & KST)
+- **기준 시각**: 모든 시각은 **한국 표준시(KST, UTC+9)**를 기준으로 하며, 파일명과 리포트 내부에 이를 반영한다.
+- **파일명 (GP-FNAME)**: `YYYY-MM-DD-HHmm-SEQ-Title.md` 형식을 엄수한다.
+- **세션 ID (GP-SESS)**: 동일 주제나 15분 이내의 연속된 분석은 동일한 `HHmm`을 공유하여 그룹화한다.
+- **본문 시각**: 리포트 내부의 시각은 실제 실측 시각을 KST로 기록한다.
 
-### 2. [GP-SPEC] KIS API 명세 우선 (Spec First)
-- 호출 전 `find_api_detail` 필수 수행.
-- **파라미터 엄격 준수**: `find_api_detail`이 반환한 `params` 목록에 없는 인자는 절대 포함하지 않는다.
-- **env_dv 주의**: `env_dv`('real'/'demo')는 대부분의 주문/잔고 API에서 필수이나, `inquire_overtime_price` 등 **일부 시세 조회 API에서는 허용되지 않으므로(TypeError 발생)** 반드시 명세를 선확인한다.
+### 2. [GP-SEQ] 워크플로우 순번 규정 (Workflow Sequencing)
+보고서 생성 시 아래 순번에 따라 `SEQ`를 부여하여 아카이브 정렬 순서를 보장한다.
+- **01 (Review)**: 전일 분석 복기 및 성과 실측.
+- **02 (Macro)**: 매크로 지수 및 환율 분석.
+- **03 (Event)**: 주요 뉴스 및 공시 팩트체크.
+- **04 (Market)**: 섹터 주도권 및 ETF 수급 동향.
+- **05 (Value)**: 밸류에이션 및 실적 분석.
+- **06 (Supply)**: 외인/기관 수급 포렌식.
+- **07 (Risk)**: 단기 과열 및 데이터 괴리 진단.
+- **08 (Synthesis)**: 전략 집대성 및 추천 종목 확정.
+- **09 (Summary)**: 3줄 핵심 요약 가이드.
+- **10 (TSM)**: Trading Score Matrix 수치화.
+- **11-13 (MAD/Guide/Unified)**: 의사결정 및 실전 가이드.
+
+### 3. [GP-TINT] 제목 무결성 및 명명 규칙 (Title Integrity)
+- **파일명/제목**: 대괄호 `[` `]`를 제거하고, 공백 대신 언더바 `_`를 구분자로 사용한다.
+- **특수문자**: 파일 시스템 호환성을 위해 최소한의 특수문자만 사용한다.
+
+### 4. [GP-META] 메타데이터 및 구조 유지 (Metadata & Structure)
+- **YAML Front Matter**: 모든 리포트 상단에 `session_id`, `session_order`, `title`, `layout: post`를 포함한다.
+- **로컬 아카이브**: `reports/YYYY-MM-DD/` 폴더 구조를 유지하며 원본 파일을 보관한다.
+- **배포 아카이브**: 외부 저장소(`trading-pulse`)의 `_posts/` 폴더에 배포용 파일을 동기화한다.
+
+### 5. [GP-SPEC] KIS API 명세 우선 (Spec First)
+- 호출 전 `find_api_detail` 필수 수행 및 `env_dv`('real'/'demo') 확인.
 - 추측 금지. 사용 API명 및 필수 `fid_` 인자 리포트 하단 적시.
 
-### 3. [GP-EBR] 근거 중심 리포팅 (Evidence-Based)
-- "좋음/나쁨" 금지. 수치(Price/Vol/Ratio) + 시각(Time) + 추론(CoT) 필수.
+### 6. [GP-EBR] 근거 중심 리포팅 (Evidence-Based)
+- 수치(Price/Vol/Ratio) + 시각(Time) + 추론(CoT) 필수.
 - 모든 보고서 상단에 **Quick Scan Matrix (🔴/🟡/🟢)** 포함.
 
-### 4. [GP-VFY] 데이터 교차 검증 (Cross-Check)
-- KIS 데이터 기본 + **Yahoo Finance/Naver Stock MCP** 대조 필수.
-- **Yahoo (get_current_stock_price)**: 나스닥 선물(`NQ=F`), S&P500 선물(`ES=F`), 환율(`USDKRW=X`) 실시간 확인.
-- **Naver (search_stock)**: 국내 종목 테마 및 실시간 수급 보완.
-- 괴리 발생 시 `[리스크]` 보고서에 수치 기입 및 경고.
-
-### 5. [GP-REV] 복기 우선 (Review First)
+### 7. [GP-REV] 복기 우선 (Review First)
 - 분석 시작 전 "어제 가설 vs 오늘 결과" 대조 및 가중치 보정.
 
-### 6. [GP-KIS-EX] KIS API 호출 예시 (Golden Examples)
-- **잔고 조회**: `domestic_stock({ "api_type": "inquire_balance", "params": { "afhr_flpr_yn": "N", "env_dv": "real", "fncg_amt_auto_rdpt_yn": "N", "fund_sttl_icld_yn": "N", "inqr_dvsn": "02", "prcs_dvsn": "01", "tr_cont": "", "unpr_dvsn": "01" } })`
-- **투자자별 매매동향**: `domestic_stock({ "api_type": "inquire_investor", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })`
-- **시간외/NX 시세**: `domestic_stock({ "api_type": "inquire_overtime_price", "params": { "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930" } })` (NX 시장은 `fid_cond_mrkt_div_code: "NX"`)
-- **일자별 가격**: `domestic_stock({ "api_type": "inquire_daily_price", "params": { "env_dv": "real", "fid_cond_mrkt_div_code": "J", "fid_input_iscd": "005930", "fid_org_adj_prc": "1", "fid_period_div_code": "D" } })`
+### 8. [GP-TSM] 수치화 평가 규정 (Trading Score Matrix)
+1. **[EQS] 실적 품질 점수**: YoY 영업익 변화율 기준.
+2. **[SMR] 수급 모멘텀 비율**: 외인/기관 수급 흡수율 기준.
+3. **[VPR] 가치 프리미엄 비율**: 3년 평균 PBR 대비 위치 기준.
+- **종합 점수(Total Score)**: 합산 점수에 따른 비중 조절 가이드 강제.
 
-### 7. [GP-ERN] 실적 우선 원칙 (Earnings Integrity)
-- 성장주 섹터에서 **'전년 대비 영업이익 감소(역성장)'**가 확인될 경우, 배당이나 자산 매입 등 모든 호재보다 이를 우선 순위에 두고 '리스크'로 분류한다.
-- 실적 쇼크 종목은 기술적 반등 시 '탈출'을 최우선 가이드로 제공한다.
-
-### 8. [GP-LIQ] 유동성 및 수급 가중치 (Liquidity Weight)
-- 지수 고점(ATH) 구간에서는 중소형주보다 **외국인/기관의 패시브 자금이 유입되는 시총 상위 대형주**에 가중치를 두어 분석한다.
-- 기관의 매도를 외국인이 받아내는 '손바뀜' 발생 시, 이를 강력한 추세 전환 신호로 실측한다.
-
-### 9. [GP-DVP] 배당 및 주주환원 검증 (Dividend Validation)
-- 실적 역성장 구간에서의 고배당 공시는 '주가 하락 방어용'일 가능성이 높으므로, 이를 '성장 모멘텀'으로 오인하지 말고 펀더멘털과 대조한다.
-
-### 10. [GP-TSM] 수치화 평가 규정 (Trading Score Matrix)
-모든 종목 분석 시 아래 3개 지표를 수치화하여 `Quick Scan Matrix`에 표기한다.
-1. **[EQS] 실적 품질 점수**: YoY 영업익 변화율 기준 (+20%:+2 / 0~20%:+1 / -10~0%:-1 / -10%이하:-3)
-2. **[SMR] 수급 모멘텀 비율**: 외인 흡수율(외인 순매수 / |기관 순매도| * 100) 기준 (100%이상:+2 / 50~100%:+1 / -50~50%:0 / -50%이하:-2)
-3. **[VPR] 가치 프리미엄 비율**: 3년 평균 PBR 대비 현재가 위치 기준 (평균대비 -20%이하:+1 / 평균대비 +50%이상:-1 / 그외:0)
-- **종합 점수(Total Score)**: 위 점수의 합산. -2점 이하 시 '공격적 비중 축소' 가이드 강제.
-
-### 11. [GP-GIT-DIST] 리포트 서비스 발행 프로토콜 (Distributed Publishing)
-리포트 세션 종료 시 다음 절차를 거쳐 외부 저장소(`trading-reports`)에 발행한다.
-1. **파일명 변환**: `YYYY-MM-DD-NAME.md` 형식으로 변경하여 `_posts/` 디렉토리로 복사한다. (Jekyll 규격 준수)
-2. **Frontmatter 주입**: 파일 최상단에 YAML 메타데이터(layout: post, title, date, categories)를 강제 삽입한다.
-3. **분산 커밋**: 메인 저장소(`trading`)는 로직만 커밋하고, 리포트 파일은 `trading-reports` 저장소에서 별도 커밋 및 푸시한다.
-4. **서비스 갱신**: 푸시 후 GitHub Pages 빌드 시간을 고려하여 사용자에게 서비스 URL을 안내한다.
-
-### 12. [GP-GIT] Git 반영 정책 (Git Persistence)
-- **설정 파일 수정 (Workflow/Skill/Protocol)**:
-    - **중대 변경**: `git branch` 생성 후 작업 및 `merge` 수행.
-    - **단순 수정**: 현재 브랜치에 즉시 `git commit`.
-    - **공통**: 작업 완료 후 반드시 `git push origin main` (또는 활성 브랜치) 수행.
-- **보고서 생성 (Reports)**:
-    - 개별 파일 생성 시마다 푸시하지 않고, **해당 세션(TTO, IDR, MAD 등)의 모든 워크플로우가 종료된 시점에 일괄** `git add`, `git commit`, `git push`를 수행한다.
-    - 커밋 메시지는 세션의 성격을 대표하도록 작성한다. (예: `feat(report): 20260213_1907 통합 분석 세션 완료`)
-    - 긴급 공시나 특이 사항은 예외적으로 즉시 반영할 수 있다.
+### 9. [GP-GIT] Git 반영 정책 (Git Persistence)
+- **리포트 발행**: 로컬 `reports/`와 외부 `trading-pulse`를 동시에 업데이트하며, 세션 종료 시 일괄 커밋 및 푸시한다.
+- **KST 타임스탬프**: 파일 수정 시간(`mtime`)은 가급적 생성 시각과 일치시킨다.
