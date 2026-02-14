@@ -50,7 +50,14 @@
 3. **[VPR] 가치 프리미엄 비율**: 3년 평균 PBR 대비 현재가 위치 기준 (평균대비 -20%이하:+1 / 평균대비 +50%이상:-1 / 그외:0)
 - **종합 점수(Total Score)**: 위 점수의 합산. -2점 이하 시 '공격적 비중 축소' 가이드 강제.
 
-### 11. [GP-GIT] Git 반영 정책 (Git Persistence)
+### 11. [GP-GIT-DIST] 리포트 서비스 발행 프로토콜 (Distributed Publishing)
+리포트 세션 종료 시 다음 절차를 거쳐 외부 저장소(`trading-reports`)에 발행한다.
+1. **파일명 변환**: `YYYY-MM-DD-NAME.md` 형식으로 변경하여 `_posts/` 디렉토리로 복사한다. (Jekyll 규격 준수)
+2. **Frontmatter 주입**: 파일 최상단에 YAML 메타데이터(layout: post, title, date, categories)를 강제 삽입한다.
+3. **분산 커밋**: 메인 저장소(`trading`)는 로직만 커밋하고, 리포트 파일은 `trading-reports` 저장소에서 별도 커밋 및 푸시한다.
+4. **서비스 갱신**: 푸시 후 GitHub Pages 빌드 시간을 고려하여 사용자에게 서비스 URL을 안내한다.
+
+### 12. [GP-GIT] Git 반영 정책 (Git Persistence)
 - **설정 파일 수정 (Workflow/Skill/Protocol)**:
     - **중대 변경**: `git branch` 생성 후 작업 및 `merge` 수행.
     - **단순 수정**: 현재 브랜치에 즉시 `git commit`.
