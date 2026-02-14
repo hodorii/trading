@@ -23,8 +23,8 @@ TTO(시간대별 운영), 정밀 포렌식, 차트 분석을 결합하여 개별
 - **Git Persistence**: [GP-GIT]에 따라 로컬 및 배포 저장소 동기화 후 일괄 커밋.
 
 ---
-## 아카이빙 및 동기화
-- **저장 경로 1**: `reports/YYYY-MM-DD/` (로컬 보관)
-- **저장 경로 2**: `../trading-pulse/_posts/YYYY-MM-DD/` (배포 보관)
-- **파일명 규격**: `YYYY-MM-DD-HHmm-SEQ-한글_제목.md` 엄수.
-- **검증**: 배포 전 순번(SEQ) 및 KST 시각 기록 여부 확인.
+## 운영 원칙
+1. **KST 준수**: 모든 기록은 한국 시각 기준.
+2. **TTO 반영**: 분석 시점의 시장 상황(장전/장중/장후)에 최적화된 데이터 우선.
+3. **날짜별 격리**: `reports/YYYY-MM-DD/` 및 `../trading-pulse/_posts/YYYY-MM-DD/` 폴더 저장.
+4. **표 중심 보고**: 모든 분석 데이터는 [GP-TABLE]에 따라 **Markdown 표**로 우선 기술함.
