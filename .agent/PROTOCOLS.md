@@ -1,11 +1,11 @@
-# 📜 Trading Agent Global Protocols (v1.5)
+# 📜 Trading Agent Global Protocols (v1.6)
 
 ### 1. [GP-KST] 시간대 및 언어 준수
 - **KST 강제**: 모든 시각은 한국 표준시(KST) 기준. 보고서 작성 전 `date` 실측 필수.
 - **한글 우선**: 파일명과 제목은 한글 사용. 공백은 `_`로 대체. (예: `01-매크로_시장_진단.md`)
 
 ### 2. [GP-SEQ] 8단계 핵심 순번 및 경로
-모든 파일은 `reports/YYYY-MM-DD/` 및 `../trading-pulse/YYYY-MM-DD/`에 생성/복사한다.
+모든 파일은 `reports/YYYY-MM-DD/` 및 `../trading-pulse/_posts/YYYY-MM-DD/`에 생성/복사한다.
 - **01 (매크로)**: [GP-IDX-INT] 이격도, 매물대 지지력, 환율 민감도 실측.
 - **02 (이벤트)**: [GP-SPEC] 뉴스/공시 팩트체크 및 현재 시간대(TTO) 유효성 검증.
 - **03 (시장/기술)**: [GP-TECH] 섹터 주도권 + **차트 패턴(이평선, 매물대, 캔들), 거래량 에너지** 분석.
@@ -15,24 +15,29 @@
 - **07 (합성)**: [GP-TP] 트레이딩 관점(Day/Short/Weekly/Long) 결정 및 근거 집대성.
 - **08 (결정)**: 최종 의사결정, 진입/목표/손절 가이드라인.
 
-### 3. [GP-TECH] 기술적 분석의 핵심 (Chart Perspective)
+### 3. [GP-TINT] 한글명 준수 및 제목 무결성
+- **한글 우선**: 파일명과 리포트 제목은 반드시 한글을 사용한다.
+- **구분자**: 공백은 `_`로 대체하며, 대괄호 `[` `]` 사용을 금지한다.
+- **로컬 경로**: `reports/YYYY-MM-DD/YYYY-MM-DD-HHmm-SEQ-Title.md`
+- **배포 경로**: `../trading-pulse/_posts/YYYY-MM-DD/YYYY-MM-DD-HHmm-SEQ-Title.md`
+
+### 4. [GP-TECH] 기술적 분석의 핵심 (Chart Perspective)
 - **추세 및 이격**: 5/20/60/120일 이평선 정배열 여부 및 20일선 이격도 실측.
 - **매물대(Volume Profile)**: 최대 거래량이 발생한 가격대(Anchor)의 지지/저항력 판별.
 - **캔들 패턴**: 장대양봉의 중심값 유지 여부, 윗꼬리 매도세 등 심리적 변곡점 포착.
 
-### 4. [GP-FORENSIC] 수급 분석의 정수 (Recent Best Practice)
+### 5. [GP-FORENSIC] 수급 분석의 정수 (Recent Best Practice)
 - **Golden Swap**: 개인(키움 등)의 대량 매도를 외인/기관 메이저 창구가 흡수하는 현상을 '질 좋은 수급'의 핵심 근거로 삼는다.
 - **검은머리 외인**: 외국계 창구 매수가 국내 특정 창구 패턴과 연동되는지 실측하여 '투기적 유입' 여부를 적시한다.
 
-### 5. [GP-TP] 트레이딩 관점 정의
+### 6. [GP-TP] 트레이딩 관점 정의
 - **데이트레이딩(Day)**: 당일 청산.
 - **단기스윙(Short)**: 1~3일.
 - **주간매매(Weekly)**: 1~2주 (현재 주력).
 - **중장기(Long)**: 1개월 이상.
 - **복기 분리**: [GP-REV] 성과 복기는 독립 워크플로우로 관리한다.
 
-### 6. [GP-GIT] Git 반영 및 저장소 동기화
+### 7. [GP-GIT] Git 반영 및 저장소 동기화
 - **반영 시점**: 08단계(결정) 리포트 생성 및 배포 저장소(`../trading-pulse/`) 복사가 완료된 직후 일괄 반영한다.
 - **동기화 의무**: 로컬 `reports/`와 배포처 `../trading-pulse/`의 파일 목록이 항상 일치해야 한다.
-- **커밋 메시지**: `feat:`, `fix:`, `chore:` 등 Conventional Commits 규격을 따르며, 분석 대상 종목코드와 세션 ID를 포함한다. (예: `feat: SK증권(001510) 분석 완료 (Session 0336)`)
-- **최종 확인**: 커밋 직전 `git status`와 `git diff`를 통해 변경 사항을 검토한다.
+- **커밋 메시지**: Conventional Commits 규격을 따르며, 종목코드와 세션 ID를 포함한다.
