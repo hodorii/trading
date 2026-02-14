@@ -1,43 +1,28 @@
----
-description: 팩트 중심 분석 및 전략적 근거 집대성 루틴
----
-
-# integrated-daily-routine
+# integrated-daily-routine (Core 8-Step v1.5)
 
 ## 목표
-[Phase 0-3]을 통한 정밀 실측 및 최종 변론서 작성.
+TTO(시간대별 운영)와 정밀 포렌식, 그리고 **차트 기술적 분석**을 결합한 입체적 전략 수립.
 
-## 준수: [PROTOCOLS.md] 전 항목 (GP-ETO, GP-SPEC, GP-EBR, GP-VFY, GP-REV) 및 아카이빙 규칙
-- **[GP-FNAME]**: `YYYY-MM-DD-HHmm-SEQ-Title.md` 엄수.
-- **[GP-TINT]**: 제목/파일명에서 `[` `]` 제거, `_`를 구분자로 사용.
-- **[GP-SEQ]**: Review(01) > Macro(02) > Event(03) > Market(04) > Value(05) > Supply(06) > Risk(07) > Synthesis(08) > Summary(09) > TSM(10) > Decision(11) > Guide(12) > Unified(13).
-- **[GP-META]**: YAML Front Matter (session_id, session_order, title, layout: post) 필수.
-- **[GP-SESS]**: 15분 이내 동일 주제 리포트는 동일 HHmm 세션 ID 공유.
-
----
-
-## Pipeline (9-Step)
-
-### [Phase 0: Review]
-- **0. Review**: [GP-REV] 수행. 어제 결정 대비 오늘 성과 실측.
+## Pipeline (Strict 8-SEQ)
 
 ### [Phase 1: Intelligence]
-- **1. [매크로]**: [GP-IDX-INT] 수행. NQ=F, ES=F, VIX, 환율 민감도 및 국내 지수 이격도 분석.
-- **2. [이벤트]**: 뉴스/공시 팩트체크 및 국내 전이(Spillover) 경로 실측.
-- **3. [시장]**: US-Linked 섹터 주도권 및 대장주 거래대금 비중 분석.
-
-**[Quick Scan Matrix]**
-- **TSM Score**: Total (  ) pts [EQS: ( ) / SMR: ( ) / VPR: ( )]
-- **Status**: 🔴(위험) / 🟡(경계) / 🟢(정상)
+- **01. 매크로**: [GP-IDX-INT] 지수 이격도 및 거래대금 에너지 실측.
+- **02. 이벤트**: 현재 TTO 시점의 뉴스 영향력 및 Spillover 경로 분석.
+- **03. 시장/기술**: [GP-TECH] 섹터 주도권 + **주요 매물대 및 이평선 이격도** 실측.
 
 ### [Phase 2: Deep Dive]
-- **4. [가치]**: 3개년 PER/PBR 밴드 대조 및 적정가 산식 포함. [GP-ERN] 기반 실적 피크아웃 여부 판별.
-- **5. [수급]**: [GP-FORENSIC] 수행. 창구별 손바뀜 실측 및 '검은머리 외인' 판별.
-- **6. [리스크]**: [GP-VFY] 기반 데이터 괴리 및 De-coupling 진단.
+- **04. 가치**: [GP-ERN] 실적 기반 밸류에이션 리레이팅 여부 판별.
+- **05. 수급**: [GP-FORENSIC] 창구별 손바뀜 및 검은머리 외인 추적.
+- **06. 리스크**: 기술적 과열 및 규제 공시 리스크 필터링.
 
-### [Phase 3: Synthesis]
-- **7. [합성] (Tactical Synthesis)**: 0-6단계 근거 집대성. **함축 금지**. 모순점(예: 가치 vs 수급) 적시. **실적 부진 시 '본전 회복'보다 '손실 최소화 탈출' 가이드 강제.**
-- **8. [요약]**: 세션 인덱스 및 Why-First 3줄 압축.
+### [Phase 3: Action]
+- **07. 합성**: 근거 집대성 및 **트레이딩 관점(TP)** 확정.
+- **08. 결정**: 최종 MAD 의사결정 및 매매 지침 발행.
+
+### [Phase 4: Finalize]
+- **Git Persistence**: [GP-GIT]에 따라 로컬 및 배포 저장소 동기화 후 일괄 커밋.
 
 ---
-**ID**: `IDR-LEAN`
+## 아카이빙 및 동기화
+- **로컬/배포**: `reports/`와 `../trading-pulse/` 내 **날짜별 폴더**에 8개 파일 순차 저장.
+- **검증**: 배포 전 순번(SEQ) 및 KST 시각 기록 여부 확인.
